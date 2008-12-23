@@ -57,6 +57,9 @@ def editor(filling='', filename='', editor=os.environ.get('EDITOR', 'nano')):
         '''Fonction qui retourne le texte soumis par l'utilisateur avec son editeur de text favoris
         L'argument filling permet de pre-remplir nano avec du texte (instructions, etc...)'''
 
+        if editor not in ('vim', 'emacs', 'nano'):
+                editor = 'nano'
+
         # Definition du fichier :
         if filename == '':
                 filename = tempfile.mktemp(suffix='-editor')
