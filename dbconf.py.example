@@ -1,0 +1,11 @@
+import database as db
+
+DB_TYPE='mysql'
+DB_DATABASE='beadmin'
+DB_USERNAME='root'
+DB_PASSWORD=''
+DB_HOST='localhost'
+
+db.connect(dbn=DB_TYPE, user=DB_USERNAME, pw=DB_PASSWORD,
+           db=DB_DATABASE, host=DB_HOST, use_unicode=True)
+
