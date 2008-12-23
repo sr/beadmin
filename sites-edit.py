@@ -55,7 +55,7 @@ except KeyboardInterrupt:
         sys.exit()
 
 if enabled == "edit":
-	config = nanoide(filling=site.config.encode('utf8')).decode('utf8')
+	config = editor(filling=site.config.encode('utf8')).decode('utf8')
 	db.update('websites', where='id = $site_id', config=config, vars=locals())
 	print 'La configuration de %s a été mise à jour.' % domain
 else:

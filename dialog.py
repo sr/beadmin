@@ -53,13 +53,13 @@ def passwd(title, default=None):
 	return typed
 
 
-def nanoide(filling='', filename='', pathtonano='nano'):
-        '''Fonction qui retourne le texte soumis par l'utilisateur avec nano.
+def editor(filling='', filename='', editor=os.environ.get('EDITOR', 'nano')):
+        '''Fonction qui retourne le texte soumis par l'utilisateur avec son editeur de text favoris
         L'argument filling permet de pre-remplir nano avec du texte (instructions, etc...)'''
 
         # Definition du fichier :
         if filename == '':
-                filename = tempfile.mktemp(suffix='-nanoide')
+                filename = tempfile.mktemp(suffix='-editor')
 
         # Creation du fichier
 
@@ -68,7 +68,7 @@ def nanoide(filling='', filename='', pathtonano='nano'):
         file.close()
 
         # ouverture de nano
-        os.system('%s %s' % (pathtonano, filename))
+        os.system('%s %s' % (editor, filename))
 
         # Recuperation du fichier
 

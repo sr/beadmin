@@ -45,7 +45,7 @@ if len(db.select('websites', where="id_domains = '%s'" % id_domain)) == 1:
 	print 'Le domaine %s possède déjà une configuration sur Lighttpd' % domain
 	sys.exit()
 
-config = nanoide(filling=msg).decode('utf8')
+config = editor(filling=msg).decode('utf8')
 
 if len(db.select('websites', where="id_domains = '%s'" % id_domain)) == 1:
 	print 'Erreur : une configuration a été crée pour %s pendant que vous éditiez ce fichier' % id_domain
